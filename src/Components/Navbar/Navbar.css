@@ -1,0 +1,252 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10%;
+    color: #e2e8f0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.logo-text {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.logo-highlight {
+    color: #10b981;
+}
+
+
+
+.navbar ul{
+    display: flex;
+    gap: 40px;
+    list-style-type: none;
+}
+
+.navbar li{
+    cursor: pointer;
+}
+
+.nav-right{
+    display: flex;
+    align-items: center;
+    gap: max(1vw,12px);
+}
+
+.navbar select{
+    padding: 5px 8px;
+    border-radius: 6px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+}
+.navbar option {
+    background-color: #0f172a;
+    color: white;
+}
+.navbar button{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #393939;
+    background: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navbar button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.login-btn {
+    background: transparent !important;
+    color: white !important;
+    border: 2px solid white !important;
+    padding: 8px 20px !important;
+}
+
+.login-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.signup-btn {
+    background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%) !important;
+    color: white !important;
+    border: none !important;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-name {
+    color: #10b981;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.logout-btn {
+    background: rgba(255, 107, 107, 0.2) !important;
+    color: #ff6b6b !important;
+    border: 2px solid #ff6b6b !important;
+    padding: 8px 20px !important;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 107, 107, 0.3) !important;
+}
+.navbar button img{
+    width: 13px;
+}
+@media (max-width: 900px){
+    .navbar{
+        padding: 20px 8%;
+    }
+    .navbar button{
+        gap: 8px;
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+}
+@media (max-width: 768px)
+{
+    .navbar{
+        padding: 20px 5%;
+    }
+    .navbar ul{
+        display: none;
+    }
+    .navbar button img{
+        width: 12px;
+    }
+    .auth-buttons {
+        gap: 8px;
+    }
+    .login-btn {
+        padding: 6px 15px !important;
+        font-size: 13px !important;
+    }
+    .signup-btn {
+        padding: 6px 15px !important;
+        font-size: 13px !important;
+    }
+    .user-section {
+        gap: 10px;
+    }
+    .user-name {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 15px 3%;
+    }
+    
+    .logo-text {
+        font-size: 22px;
+    }
+    
+
+    
+    .nav-right {
+        gap: 8px;
+    }
+    
+    .navbar select {
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+    
+    .auth-buttons {
+        gap: 6px;
+    }
+    
+    .login-btn {
+        padding: 5px 12px !important;
+        font-size: 12px !important;
+    }
+    
+    .signup-btn {
+        padding: 5px 12px !important;
+        font-size: 12px !important;
+    }
+    
+    .signup-btn img {
+        width: 10px;
+    }
+    
+    .user-section {
+        gap: 8px;
+    }
+    
+    .user-name {
+        font-size: 11px;
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .logout-btn {
+        padding: 5px 12px !important;
+        font-size: 12px !important;
+    }
+    
+    .logout-btn img {
+        width: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .navbar {
+        padding: 12px 2%;
+    }
+    
+    .logo-text {
+        font-size: 18px;
+    }
+    
+
+    
+    .auth-buttons {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .login-btn, .signup-btn {
+        padding: 4px 10px !important;
+        font-size: 11px !important;
+    }
+    
+    .user-section {
+        flex-direction: column;
+        gap: 4px;
+        align-items: flex-end;
+    }
+    
+    .user-name {
+        font-size: 10px;
+        max-width: 60px;
+    }
+}

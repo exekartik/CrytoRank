@@ -1,0 +1,122 @@
+  /* Blog page styles */
+.blog-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.blog-header h1 {
+  font-size: 2rem;
+  margin: 0 0 8px;
+}
+
+.blog-header p {
+  color: #708090;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.blog-card {
+  background: #0e1320;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.blog-card.up { border-color: rgba(0, 200, 83, 0.35); }
+.blog-card.down { border-color: rgba(255, 82, 82, 0.35); }
+
+.blog-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px 0 14px;
+}
+
+.card-header img {
+  width: 36px;
+  height: 36px;
+}
+
+.title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.title-wrap h2 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.symbol {
+  color: #9aa0a6;
+  font-size: 0.9rem;
+}
+
+.card-body {
+  padding: 8px 14px 0 14px;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.08);
+}
+
+.price-row .label {
+  color: #9aa0a6;
+}
+
+.price-row .value {
+  font-weight: 600;
+}
+
+.change.pos { color: #00e676; }
+.change.neg { color: #ff5252; }
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 0 0 0;
+  color: #9aa0a6;
+  font-size: 0.92rem;
+}
+
+.card-footer {
+  padding: 12px 14px 16px 14px;
+}
+
+.read-more {
+  display: inline-block;
+  color: #4ea1ff;
+  text-decoration: none;
+  border: 1px solid rgba(78,161,255,0.35);
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.read-more:hover {
+  background: #4ea1ff;
+  color: #0e1320;
+}
