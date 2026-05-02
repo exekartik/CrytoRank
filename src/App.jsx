@@ -7,6 +7,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import Pricing from './Pages/Pricing/Pricing';
 import Blog from './Pages/Blog/Blog';
 import Features from './Pages/Features/Features';
+import Calculator from './Pages/Calculator/Calculator';
 import Footer from './Components/Footer/Footer';
 import { AuthProvider } from './Context/AuthContext';
 
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/pricing' element={<Pricing />} />
           <Route path='/blog' element={<Blog />} />
           <Route path='/features' element={<Features />} />
+          <Route path='/calculator' element={<Calculator />} />
           <Route path='/coin/:coinId' element={<Coin />} />
         </Routes>
         <Footer />

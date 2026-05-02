@@ -79,6 +79,7 @@ return (
         <Link to={'/dashboard'}><li>Dashboard</li></Link>
         <Link to={'/home'}><li>Home</li></Link>
         <Link to={'/features'}><li>Features</li></Link>
+        <Link to={'/calculator'}><li>Calculator</li></Link>
         <Link to={'/pricing'}><li>Pricing</li></Link>
         <Link to={'/blog'}><li>Blog</li></Link>
       </ul>
