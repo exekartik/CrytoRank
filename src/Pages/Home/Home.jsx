@@ -10,6 +10,25 @@ const Home = () => {
   const [input, setInput] = useState("");
   const [lastUpdated, setLastUpdated] = useState(new Date());
 
+  // Watchlist features
+  const [favorites, setFavorites] = useState(() => {
+    const saved = localStorage.getItem('crypto_favorites');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+
+  const toggleFavorite = (e, coinId) => {
+    e.preventDefault(); // Prevent Link click
+    let newFavs;
+    if (favorites.includes(coinId)) {
+      newFavs = favorites.filter(id => id !== coinId);
+    } else {
+      newFavs = [...favorites, coinId];
+    }
+    setFavorites(newFavs);
+    localStorage.setItem('crypto_favorites', JSON.stringify(newFavs));
+  };
+
   const inputHandler = (event)=>{
     setInput(event.target.value);
     if(event.target.value === ""){
@@ -24,12 +43,18 @@ const Home = () => {
     });
     setDisplayCoin(coins);
   }
+
   useEffect(() => {
     if (allCoin.length > 0) {
       setDisplayCoin(allCoin);
       setLastUpdated(new Date());
     }
   }, [allCoin])
+
+  // Filter displayCoin based on favorites toggle
+  const finalDisplayCoins = showFavoritesOnly 
+    ? displayCoin.filter(coin => favorites.includes(coin.id))
+    : displayCoin;
 
   return (
     <div className='home'>
@@ -66,12 +91,24 @@ const Home = () => {
             ))}
           </datalist>
 
-          <button type="submit">Search</button>
+          <div className="form-actions">
+            <button type="submit">Search</button>
+            
+            {/* New Favorites Toggle */}
+            <button 
+              type="button" 
+              className={`fav-toggle-btn ${showFavoritesOnly ? 'active' : ''}`}
+              onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+            >
+              {showFavoritesOnly ? '★ All Coins' : '☆ Favorites'}
+            </button>
+          </div>
         </form>
       </div>
 
       <div className='crypto-table'>
         <div className='table-layout'>
+          <p>★</p>
           <p>#</p>
           <p>Coins</p>
           <p>Price</p>
@@ -79,8 +116,14 @@ const Home = () => {
           <p className='market-cap'>Market Cap</p>
         </div>
         {
-          displayCoin.slice(0, 10).map((item, index) => (
-            <Link to={`/coin/${item.id}`} className='table-layout' key={index}>
+          finalDisplayCoins.slice(0, 10).map((item, index) => (
+            <Link to={`/coin/${item.id}`} className='table-layout table-row' key={index}>
+              <div 
+                className={`fav-star ${favorites.includes(item.id) ? 'active' : ''}`} 
+                onClick={(e) => toggleFavorite(e, item.id)}
+              >
+                {favorites.includes(item.id) ? '★' : '☆'}
+              </div>
               <p>{item.market_cap_rank || 'N/A'}</p>
               <div>
                 <img 
@@ -105,6 +148,11 @@ const Home = () => {
             </Link>
           ))
         }
+        {finalDisplayCoins.length === 0 && (
+           <div className="no-results">
+              <p>No coins found.</p>
+           </div>
+        )}
       </div>
     </div>
   )

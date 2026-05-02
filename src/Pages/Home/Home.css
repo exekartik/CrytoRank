@@ -26,7 +26,8 @@
 
 .hero form {
     padding: 12px;
-    width: 80%;
+    width: 95%; /* Increased width to accommodate both buttons */
+    max-width: 700px; /* Added max-width */
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
     border-radius: 25px;
     font-size: 20px;
@@ -149,10 +150,80 @@
 
 .table-layout {
     display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr;
+    grid-template-columns: 0.2fr 0.5fr 2fr 1fr 1fr 1.5fr;
     padding: 15px 20px;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.table-row {
+    transition: background 0.3s;
+}
+.table-row:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.fav-star {
+    font-size: 20px;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fav-star:hover {
+    transform: scale(1.2);
+    color: #cbd5e1;
+}
+
+.fav-star.active {
+    color: #fbbf24; /* Golden yellow */
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.fav-toggle-btn {
+    border: 2px solid #10b981 !important;
+    background: transparent !important;
+    color: #10b981 !important;
+    box-shadow: none !important;
+    min-width: 130px;
+    padding: 10px 20px !important;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.fav-toggle-btn::before {
+    display: none; /* remove the hover gradient from base button */
+}
+
+.fav-toggle-btn:hover {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border: 2px solid #059669 !important;
+    box-shadow: none !important;
+    transform: translateY(-2px);
+}
+
+.fav-toggle-btn.active {
+    border: 2px solid #fbbf24 !important;
+    color: #fbbf24 !important;
+    background: rgba(251, 191, 36, 0.1) !important;
+}
+
+.no-results {
+    text-align: center;
+    padding: 30px;
+    color: #cbd5e1;
 }
 
 .market-cap {
@@ -184,27 +255,39 @@
 
 @media (max-width: 768px) {
     .table-layout {
-        grid-template-columns: 0.5fr 3fr 1fr 1fr;
+        grid-template-columns: 0.2fr 0.5fr 3fr 1fr 1fr;
     }
     .market-cap{
         display: none;
     }
 }
 @media (max-width: 768px) {
+    .form-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+    
+    .form-actions button {
+        width: 100%;
+    }
+
     .hero form {
-        width: 90%;
-        padding: 10px;
-        gap: 12px;
+        width: 95%;
+        padding: 15px;
+        flex-direction: column;
+        gap: 15px;
     }
     
     .hero button {
-        padding: 10px 25px;
-        font-size: 14px;
+        padding: 12px 25px;
+        font-size: 15px;
     }
     
     .hero input {
-        padding: 10px 12px;
-        font-size: 14px;
+        padding: 12px 12px;
+        font-size: 15px;
+        width: 100%;
     }
 }
 
